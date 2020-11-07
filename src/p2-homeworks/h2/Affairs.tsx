@@ -3,7 +3,7 @@ import Affair from "./Affair";
 import {AffairType, FilterType} from "./HW2";
 import {Debugger} from "inspector";
 
-type AffairsPropsType = { // need to fix any
+type AffairsPropsType = {
     data: Array<AffairType>
     setFilter: (filter: FilterType) => void
     deleteAffairCallback: (_id: number) => void
@@ -12,14 +12,14 @@ type AffairsPropsType = { // need to fix any
 function Affairs(props: AffairsPropsType) {
 
     const mappedAffairs = props.data.map((a: AffairType) => {return (
-       <Affair // should work
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
+       <Affair
+            key={a._id}
             affair={a}
             deleteAffairCallback={props.deleteAffairCallback}
         />
     )})
 
-    const setAll = () => {props.setFilter("all")}; // need to fix
+    const setAll = () => {props.setFilter("all")};
     const setHigh = () => {props.setFilter("high")};
     const setMiddle = () => {props.setFilter("middle")};
     const setLow = () => {props.setFilter("low")};
